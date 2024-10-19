@@ -1,0 +1,333 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+/*-------------------------------------------------NAVBAR----------------------------------------------*/
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2b6777;
+    padding: 15px 20px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo styling */
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navbar items */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #4b9c9f;
+}
+
+/* Mobile menu */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    order: -1; /* Move the burger icon to the left */
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Active burger icon animation (turns into an X) */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0; /* Align menu to the left */
+        background-color: #2b6777;
+        width: 100%;
+        text-align: left; /* Align text to the left */
+        padding-left: 20px; /* Add padding to align text better */
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar ul li {
+        margin: 15px 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+
+/*------------------------------------------CONTACT US---------------------------------------------*/
+
+/* Contact Form Styles */
+#contact {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2b6777;
+    font-size: 2rem;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #2b6777;
+    outline: none;
+}
+
+button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #2b6777;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4b9c9f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    #contact {
+        padding: 20px 10px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+}
+
+/*-----------------------------------------------EXPLORE-------------------------------------------*/
+
+/* Explore Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 0;
+}
+
+#explore {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+input, select {
+    margin: 10px;
+    padding: 10px;
+    width: calc(100% - 40px);
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#animal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: left;
+    margin-top: 20px;
+}
+
+.animal-card {
+    width: calc(33.33% - 20px);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.animal-card.expanded {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.animal-card.expanded .card-content {
+    flex-direction: row;
+    width: 100%;
+}
+
+.animal-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.animal-card.expanded img {
+    width: 250px;
+    height: auto;
+}
+
+.animal-info {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.animal-card.expanded .animal-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.animal-info h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.animal-info p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.extra-info {
+    display: none;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.animal-card.expanded .extra-info {
+    display: block;
+    width: 100%;
+}
+
+.show-more-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.show-more-btn:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 900px) {
+    .animal-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .animal-card {
+        width: 100%;
+    }
+    
+    .animal-card.expanded .card-content {
+        flex-direction: column;
+    }
+    
+    .animal-card.expanded img {
+        width: 100%;
+        height: 150px;
+    }
+}
