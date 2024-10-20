@@ -6,29 +6,42 @@
     font-family: Arial, sans-serif;
 }
 
-body {
-    background-color: #f8f9fa;
+#body{
+    background-color: #fff3b0;
+    padding: 0%;
 }
 
 /*-------------------------------------------------NAVBAR----------------------------------------------*/
 
 /* Navbar styles */
+/* Navbar container to create spacing below the navbar */
+#navbar-container {
+    margin-bottom: 20vh;
+}
+
+/* Navbar styling */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2b6777;
-    padding: 15px 20px;
-    color: white;
-    position: sticky;
+    padding: 20px 20px;
+    position: fixed; 
     top: 0;
+    width: 100%;
     z-index: 1000;
+    border: none;
+    border-radius: 0 0 40px 40px;
+    background-color: transparent; 
+    transition: background-color 0.3s ease-in-out, color 0.3s ease;
 }
 
 /* Logo styling */
 .navbar .logo {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Adjusted for visibility */
     font-weight: bold;
+    margin: 0;
+    padding: 0;
+    transition: color 0.3s ease; /* Smooth transition for text color */
 }
 
 /* Navbar items */
@@ -38,20 +51,47 @@ body {
     gap: 20px;
     justify-content: flex-end;
     flex: 1;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 
+.navbar ul li{
+    transition: transform 0.2s;
+}
+
+.navbar ul li:hover{
+    transform: scale(1.1);
+}
 .navbar ul li a {
     text-decoration: none;
-    color: white;
-    font-size: 1rem;
+    color: black; /* Default text color */
+    font-size: 1.4rem;
+    font-weight: bolder;
     padding: 5px 10px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s ease,transform 0.2s;
 }
 
 .navbar ul li a:hover {
-    background-color: #4b9c9f;
+    background-color: #ffa5ab; /* Background on hover */
+    color: white; /* White text when hovered */
+    transform: scale(1.5);
+    
 }
+
+/* Styling for the navbar when scrolled */
+.navbar.scrolled {
+    background-color: #ce4257; /* Background color when scrolled */
+}
+
+/* Update the color of the links when navbar is scrolled */
+.navbar.scrolled ul li a {
+    color: #6f1d1b /* Inherit white color from the navbar */
+}
+.navbar.scrolled ul li a:hover{
+    color: white;
+}
+
 
 /* Mobile menu */
 .menu-toggle {
@@ -330,4 +370,19 @@ input, select {
         width: 100%;
         height: 150px;
     }
+}
+
+/*--------------------------------------------------------HOME---------------------------------------------------*/
+
+.Home-head{
+    display: flex;
+    background-color: #ee8434;
+    border: none;
+    border-radius: 40px;
+    padding: 30px;
+    height:50vh;
+}
+
+.hero-dog-img{
+    padding-top: 50px;
 }
