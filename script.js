@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     logo.classList.add("logo");
 
     const logoImage = document.createElement("img");
-    logoImage.src = "/images/nav-logo.png"; // Provide the correct path to your logo image here
+    logoImage.src = "images/nav-logo.png"; // Provide the correct path to your logo image here
     logoImage.alt = "PetInfo Logo"; // Alternative text for the image
     logoImage.style.width = "130px"; // Set the desired width for your logo
     logoImage.style.height = "auto"; // Maintain aspect ratio
