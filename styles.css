@@ -6,6 +6,19 @@
     font-family: Arial, sans-serif;
 }
 
+.delius-unicase-regular {
+    font-family: "Delius Unicase", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .delius-unicase-bold {
+    font-family: "Delius Unicase", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+
 #body{
     background-color: #fff3b0;
     padding: 0%;
@@ -56,7 +69,7 @@
 }
 
 .navbar ul li{
-    transition: transform 0.2s;
+    transition: transform 0.5s;
 }
 
 .navbar ul li:hover{
@@ -82,14 +95,17 @@
 /* Styling for the navbar when scrolled */
 .navbar.scrolled {
     background-color: #ce4257; /* Background color when scrolled */
+    opacity: 0.95;
 }
 
 /* Update the color of the links when navbar is scrolled */
 .navbar.scrolled ul li a {
-    color: #6f1d1b /* Inherit white color from the navbar */
+    color: #6f1d1b ;/* Inherit white color from the navbar */
+    opacity: 1;
 }
 .navbar.scrolled ul li a:hover{
     color: white;
+    opacity: 1;
 }
 
 
@@ -381,8 +397,50 @@ input, select {
     border-radius: 40px;
     padding: 30px;
     height:50vh;
+    filter: drop-shadow(2px 2px 5px black);
 }
 
 .hero-dog-img{
     padding-top: 50px;
+    filter: drop-shadow(5px 5px 5px black);
 }
+
+.hero-content{
+    padding: 50px;
+}
+
+.hero-heading{
+    font-size: 2.7rem;
+    color: white;
+    text-shadow: 5px 2px black;
+}
+
+.hero-subheading{
+    font-size: 1.4rem;
+    margin: 30px;
+    font-weight: 600;
+}
+
+
+/*------------------------------------------ABOUT----------------------------------------------*/
+.about{
+    margin-top: 15rem;
+    height: 50rem;
+    padding: 30px;
+    background-color: #a6b07e;
+}
+
+.about-content{
+    color: white;
+    font-size: 1.6rem;
+    margin: 10px;
+    text-align: center;
+    padding: 30px;
+    font-weight: 600;
+    text-decoration: 5px 5px black;
+}
+
+.about-dog{
+    float: right;
+}
+
