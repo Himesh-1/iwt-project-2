@@ -256,3 +256,106 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+
+/*-------------------------------------------------HOME-ADOPT-------------------------------------------------*/
+
+const UNSPLASH_ACCESS_KEY = 'HwRzU_URbl8chqH7vVNyfagv21v7i3zNvGa0aP_uovI';
+
+// Fetch image from Unsplash
+async function fetchUnsplashImage(query) {
+    try {
+        const response = await fetch(
+            `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&client_id=${UNSPLASH_ACCESS_KEY}&per_page=1`
+        );
+        if (!response.ok) {
+            throw new Error('Unsplash API response was not ok');
+        }
+        const data = await response.json();
+        if (data.results.length > 0) {
+            return data.results[0].urls.regular;
+        } else {
+            return 'https://via.placeholder.com/400x300?text=No+Image+Found';
+        }
+    } catch (error) {
+        console.error('Error fetching image:', error);
+        return 'https://via.placeholder.com/400x300?text=Error+Loading+Image';
+    }
+}
+
+// Initialize the pet cards
+async function initializePetCards() {
+    const petTypes = [
+        { name: 'Dog', query: 'dog', description: 'Loyal companions for active families' },
+        { name: 'Cat', query: 'cat,kitten', description: 'Perfect pets for cozy homes' },
+        { name: 'Rabbit', query: 'rabbit,bunny', description: 'Gentle and playful friends' },
+        { name: 'Bird', query: 'parrot,bird', description: 'Colorful and chatty companions' },
+        { name: 'Guinea Pig', query: 'guinea pig', description: 'Sweet and social little pets' },
+        { name: 'Fish', query: 'tropical-fish,aquarium', description: 'Peaceful aquatic friends' }
+    ];
+
+    const petCardsContainer = document.getElementById('petCards');
+    
+    for (const pet of petTypes) {
+        try {
+            const imageUrl = await fetchUnsplashImage(pet.query);
+            const petCard = `
+                <div class="pet-card">
+                    <img src="${imageUrl}" alt="${pet.name}" class="pet-image">
+                    <h3>${pet.name}s</h3>
+                    <p>${pet.description}</p>
+                    <button class="adopt-btn" onclick="window.location.href='adopt.html'">View ${pet.name}s</button>
+                </div>
+            `;
+            petCardsContainer.innerHTML += petCard;
+        } catch (error) {
+            console.error(`Error creating card for ${pet.name}:`, error);
+        }
+    }
+}
+
+// Run when the page loads
+document.addEventListener('DOMContentLoaded', initializePetCards);
+
+
+/*------------------------------------------------------------------------------------------------------------------*/
+// Fetch image from Unsplash based on query
+async function fetchUnsplashImage(query) {
+    try {
+        const response = await fetch(
+            `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&client_id=${UNSPLASH_ACCESS_KEY}&per_page=1`
+        );
+        if (!response.ok) throw new Error('Unsplash API response was not ok');
+        const data = await response.json();
+        return data.results.length > 0 ? data.results[0].urls.small : 'https://via.placeholder.com/400x300?text=No+Image+Found';
+    } catch (error) {
+        console.error('Error fetching image:', error);
+        return 'https://via.placeholder.com/400x300?text=Error+Loading+Image';
+    }
+}
+
+// Populate pet care and supplies sections
+async function populateSections() {
+    const careData = [
+        { elementId: 'nutrition-img', query: 'pet food', alt: 'Pet Nutrition' },
+        { elementId: 'exercise-img', query: 'dog exercise', alt: 'Pet Exercise' },
+        { elementId: 'grooming-img', query: 'pet grooming', alt: 'Pet Grooming' },
+        { elementId: 'vetcare-img', query: 'pet care', alt: 'Pet Grooming' }
+    ];
+
+    const supplyData = [
+        { elementId: 'food-img', query: 'pet food supplies', alt: 'Pet Food' },
+        { elementId: 'toys-img', query: 'pet toys', alt: 'Pet Toys' },
+        { elementId: 'beds-img', query: 'pet beds', alt: 'Pet Beds' },
+        { elementId: 'collars-img', query: 'pet collars', alt: 'Pet Grooming' }
+    ];
+
+    for (const item of [...careData, ...supplyData]) {
+        const imageUrl = await fetchUnsplashImage(item.query);
+        document.getElementById(item.elementId).src = imageUrl;
+        document.getElementById(item.elementId).alt = item.alt;
+    }
+}
+
+// Run the function when the DOM loads
+document.addEventListener('DOMContentLoaded', populateSections);

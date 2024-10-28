@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    cursor: url('images/cursor_9054982.png'),auto;
 }
 
 .delius-unicase-regular {
@@ -19,10 +20,27 @@
   }
   
 
-#body{
-    background-color: #fff3b0;
-    padding: 0%;
+  #body {
+    background: linear-gradient(-50deg, #2c6cbc,#71c3f7,#f6f6f6);
+    background-size: 400% 400%; /* Increased size to allow for movement */
+    animation: gradientBackground 15s ease infinite;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 /*-------------------------------------------------NAVBAR----------------------------------------------*/
 
@@ -400,13 +418,18 @@ input, select {
     filter: drop-shadow(2px 2px 5px black);
 }
 
-.hero-dog-img{
+.hero-dog-img img{
     padding-top: 50px;
     filter: drop-shadow(5px 5px 5px black);
+    animation: float 4s infinite ease-in-out;
 }
 
 .hero-content{
     padding: 50px;
+}
+
+.hero-content p{
+    animation: float 5s infinite ease-in-out;
 }
 
 .hero-heading{
@@ -421,13 +444,28 @@ input, select {
     font-weight: 600;
 }
 
+@keyframes float{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-5px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
 
 /*------------------------------------------ABOUT----------------------------------------------*/
 .about{
     margin-top: 15rem;
     height: 50rem;
     padding: 30px;
-    background-color: #a6b07e;
+    background-color: #74C365;
+    border: none;
+    border-radius: 40px 40px 0 0;
+    filter:drop-shadow(2px 2px 5px black);
 }
 
 .about-content{
@@ -437,10 +475,465 @@ input, select {
     text-align: center;
     padding: 30px;
     font-weight: 600;
-    text-decoration: 5px 5px black;
+    text-shadow: 1px 1px 5px black;
+}
+
+.about-cat img{
+    animation: tilt 2s infinite ease-in-out;
 }
 
 .about-dog{
     float: right;
+    animation: float 2s ease-in-out infinite;
 }
 
+@keyframes tilt{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(10deg);
+    }
+    75%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+/*-----------------------------------------------------HOME-ADOPT-------------------------------------------------*/
+
+.featured-pets {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.pet-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 5rem;
+    max-width: auto;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.pet-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.pet-card:hover {
+    transform: translateY(-10px);
+}
+
+.pet-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.pet-card h3 {
+    font-family: 'Delius Unicase', cursive;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.pet-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.adopt-btn {
+    background: #fcd5ce;
+    color: #333;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Delius Unicase', cursive;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.adopt-btn:hover {
+    background: #fec5bb;
+    transform:scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .pet-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 1rem;
+    }
+}
+
+
+
+
+/* Success Stories Section */
+.success-stories {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #fdf5e6, #ffe5d9);
+}
+
+.stories-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
+}
+
+.story-card {
+    flex: 0 0 250px;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: start;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.story-card:hover {
+    transform: translateY(-10px);
+}
+
+.story-card img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.story-card p {
+    font-style: italic;
+    color: #555;
+    margin: 10px 0 5px;
+    font-size: 0.95rem;
+}
+
+/* CTA Section */
+.cta-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 40px;
+    gap: 20px;
+    background: linear-gradient(180deg, #ffe5d9, #fcd5ce);
+}
+
+.cta-content {
+    max-width: 50%;
+}
+
+.cta-content h2 {
+    color: #e76d3e;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    padding: 12px 25px;
+    background-color: #f97f51;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #e76d3e;
+    transform: scale(1.05);
+}
+
+.cta-image-wrapper {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.cta-image-wrapper img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: #e8e8e4;
+}
+
+.stat-card {
+    text-align: center;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+}
+
+.stat-card h3 {
+    font-size: 28px;
+    color: #4caf50;
+    margin-bottom: 5px;
+}
+
+/* Newsletter Section */
+.newsletter {
+    text-align: center;
+    padding: 60px;
+    background: linear-gradient(180deg, #ffe5d9, #fcd5ce);
+    color: #333;
+}
+
+.newsletter h2 {
+    color: #e76d3e;
+    margin-bottom: 15px;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 12px 15px;
+    width: 300px;
+    max-width: 80%;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+}
+
+.newsletter-form button {
+    padding: 12px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+    background-color: #3e8e41;
+}
+
+
+/* General Section Styles */
+.pet-care, .pet-supplies {
+    padding: 2rem;
+    background: #f5f5f5;
+    border-radius: 10px;
+    margin: 2rem 0;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pet-care h2, .pet-supplies h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Card Grid Layout */
+.care-cards, .supplies-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.care-card, .supply-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.care-card:hover, .supply-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.care-card img, .supply-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Card Content */
+.care-card h3, .supply-card h3 {
+    font-size: 1.5rem;
+    color: #444;
+    margin: 0.5rem 0;
+}
+
+.care-card p, .supply-card p {
+    padding: 0 1rem;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+
+/* Newsletter Styles */
+.newsletter {
+    background: #f8f4ef;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+}
+
+.newsletter-content {
+    max-width: 600px;
+    margin: auto;
+}
+
+.newsletter h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter p {
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.newsletter-form input {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+    max-width: 300px;
+    outline: none;
+}
+
+.newsletter-form button {
+    padding: 0.8rem 1.2rem;
+    background-color: #ff7e57;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+    background-color: #ff9a76;
+}
+
+/* Footer Styles */
+/* Footer Styles */
+.footer {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    padding: 2rem 1.5rem;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer h3 {
+    color: #ff7e57;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer p, .footer a, .footer li {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.footer a {
+    color: #ff9a76;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #ffbfa3;
+}
+
+.footer-section about{
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 0.5rem 0;
+}
+
+.footer-section .social-icons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.footer-section .social-icons a img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-section .social-icons a img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #444;
+    color: #bbb;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
