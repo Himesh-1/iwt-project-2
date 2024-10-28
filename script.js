@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const navItems = [
         { name: "Home", link: "index.html" },
         { name: "Explore", link: "explore.html" },
-        { name: "Adopt", link: "#adopt" },
+        { name: "Adopt", link: "adopt.html" },
         { name: "Pet Care", link: "#pet-care" },
         { name: "Pet Supplies", link: "#pet-supplies" },
         { name: "Contact Us", link: "contact.html" }
