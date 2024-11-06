@@ -1,0 +1,86 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    background-color: #2196F3;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Stats Banner */
+.stats-banner {
+    background-color: #2196F3;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h3 {
+    margin-bottom: 10px;
+}
+
+/* Filters */
+.filters {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.filters h2 {
+    margin-bottom: 10px;
+}
+
+/* Pet Grid */
+.pet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.pet-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+}
+
+.pet-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2196F3;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.back-to-top:hover {
+    background-color: #1976D2;
+}

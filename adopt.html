@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="adopt-page-css.css">
+</head>
+<body id="body">
+    <div id="navbar-container"></div>
+    <header class="header">
+        <h1>Find Your Perfect Pet</h1>
+    </header>
+
+    <section class="stats-banner">
+        <div class="stat-item">
+            <h3>Available Pets</h3>
+            <p>245</p>
+        </div>
+        <div class="stat-item">
+            <h3>Recent Adoptions</h3>
+            <p>52</p>
+        </div>
+        <div class="stat-item">
+            <h3>Successful Matches</h3>
+            <p>1,234</p>
+        </div>
+        <div class="stat-item">
+            <h3>Avg. Adoption Time</h3>
+            <p>12 days</p>
+        </div>
+    </section>
+
+    <section class="filters">
+        <h2>Find Your Match</h2>
+        <form id="filterForm">
+            <label for="species">Species:</label>
+            <select id="species" name="species">
+                <option value="">All Animals</option>
+                <option value="dog">Dogs</option>
+                <option value="cat">Cats</option>
+                <option value="bird">Birds</option>
+            </select>
+            </form>
+    </section>
+
+    <section class="pet-grid" id="petGrid">
+        </section>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="adopt-page-js.js"></script>
+</body>
+</html>

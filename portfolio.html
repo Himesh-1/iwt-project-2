@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dev Portfolio</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      :root {
+        --color-dark-green: #283618;
+        --color-olive: #606c38;
+        --color-cream: #fefae0;
+        --color-orange: #dda15e;
+        --color-brown: #bc6c25;
+      }
+
+      body {
+        background-color: var(--color-cream);
+        color: var(--color-dark-green);
+        line-height: 1.6;
+      }
+
+      /* Header */
+      header {
+        background-color: var(--color-dark-green);
+        color: var(--color-cream);
+        padding: 2rem;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .profile img {
+        height: 20rem;
+        border: 5px white solid;
+        border-radius: 40px;
+      }
+
+      .header-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .header-content p {
+        font-size: 1.5rem;
+        color: var(--color-orange);
+      }
+
+      .scroll-down {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--color-orange);
+        font-size: 2rem;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-30px);
+        }
+        60% {
+          transform: translateY(-15px);
+        }
+      }
+
+      /* Navigation */
+      nav {
+        background-color: var(--color-olive);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: var(--color-cream);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: var(--color-orange);
+      }
+
+      /* Sections */
+      section {
+        padding: 5rem 2rem;
+      }
+
+      section h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--color-olive);
+        font-size: 2.5rem;
+      }
+
+      /* About */
+      .about {
+        background-color: var(--color-cream);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Skills */
+      .skills {
+        background-color: var(--color-dark-green);
+        color: var(--color-cream);
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .skill-card {
+        background-color: var(--color-olive);
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .skill-card i {
+        font-size: 3rem;
+        color: var(--color-orange);
+        margin-bottom: 1rem;
+      }
+
+      /* Projects */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .project-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .project-content {
+        padding: 1.5rem;
+      }
+
+      .project-content a{
+        text-decoration: none;
+        padding: 20px;
+        font-size: larger;
+      }
+
+
+      .project-content h3 {
+        color: var(--color-olive);
+        margin-bottom: 1rem;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .tag {
+        background-color: var(--color-orange);
+        color: var(--color-dark-green);
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+      }
+
+      /* Contact */
+      .contact {
+        background-color: var(--color-dark-green);
+        color: var(--color-cream);
+        text-align: center;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .social-links a {
+        color: var(--color-orange);
+        font-size: 2rem;
+        transition: color 0.3s;
+      }
+
+      .social-links a:hover {
+        color: var(--color-cream);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header-content h1 {
+          font-size: 2.5rem;
+        }
+
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        section {
+          padding: 3rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="profile"><img src="ghost.jpg" /></div>
+        <h1>HIMESH SHARMA</h1>
+        <p>Computer Science Student | Web Developer | AI Enthusiast</p>
+      </div>
+      <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a second-year Computer Science Engineering student passionate about
+        creating innovative solutions through technology. My interests span
+        across web development, data science, artificial intelligence, and app
+        development. I love turning complex problems into elegant solutions
+        while continuously learning and growing in the tech world.
+      </p>
+    </section>
+
+    <section id="skills" class="skills">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fas fa-code"></i>
+          <h3>Programming Languages</h3>
+          <p>C, C++, Python, JavaScript</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-globe"></i>
+          <h3>Web Development</h3>
+          <p>HTML5, CSS3, JavaScript, React.js</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-brain"></i>
+          <h3>AI & Data Science</h3>
+          <p>Machine Learning, Data Analysis, NumPy, Pandas</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>App Development</h3>
+          <p>Flutter, React Native, Mobile-First Design</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Fit-Amigo</h3>
+            <p>
+              A comprehensive fitness tracking application that helps users
+              maintain their workout routines and achieve their fitness goals.
+            </p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+            </div>
+            <a href="https://himesh-1.github.io/Fit-Amigo/">Fit-Amigo</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Hotel Management System</h3>
+            <p>
+              A full-stack web application for managing hotel operations,
+              including bookings, room service, and customer feedback.
+            </p>
+            <div class="project-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-content">
+            <h3>ChumChums</h3>
+            <p>
+              A social networking platform designed specifically for college
+              students to connect, share resources, and collaborate on projects.
+            </p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">CSS3</span>
+            </div>
+            <a href="https://himesh-1.github.io/iwt-project-2/">ChumChums</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Get In Touch</h2>
+      <p>Feel free to reach out for collaborations or just a friendly chat</p>
+      <div class="social-links">
+        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </section>
+  </body>
+</html>
